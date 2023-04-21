@@ -36,6 +36,38 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')))
 
+
+app.get('/', async (req, res)=>{
+
+
+  //get data post = getDATa -art 1
+
+  console.log("i am here")
+  res.render('homepage.handlebars', {
+    posts: [] //post assignt the data to varaible for handlbars -art 2
+  })
+} )
+
+/*
+each model needs a route
+
+1. first 
+server.js get post DATA
+post.find()......
+
+give post to handlebars
+render{
+  post: post
+}
+
+2. homepage.handlebars
+//render it with the #each loop
+
+
+
+
+
+*/ */
 app.listen(PORT, ()=> {
   console.log(`app listening on http://localhost:${PORT}`)
   sequelize.sync({ force: false })

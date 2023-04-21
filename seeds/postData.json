@@ -1,0 +1,17 @@
+[
+    {
+        "title": "great food",
+        "body": "i love the place",
+        "user_id": 1
+    },
+    {
+        "title": "great music",
+        "body": "it was okay",
+        "user_id": 1
+    },
+    {
+        "title": "great park",
+        "body": "i like the place",
+        "user_id": 1
+    }
+]
