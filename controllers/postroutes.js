@@ -6,4 +6,6 @@ router.get('/userposts', (req, res)=> {
 
 });
 
+
+
 module.exports = router;

@@ -55,20 +55,6 @@ app.get('/', async (req, res)=>{
 
 app.use(postRoutes)
 
-// each model needs a route
-
-// 1. first 
-// server.js get post DATA
-// post.find()......
-
-// give post to handlebars
-// render{
-//   post: post
-// }
-
-// 2. homepage.handlebars
-//render it with the #each loop
-// 
 
 
 
