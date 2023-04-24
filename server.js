@@ -4,6 +4,8 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
 
+const postRoutes = require('./controllers/postroutes')
+
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -48,28 +50,35 @@ app.get('/', async (req, res)=>{
   })
 } )
 
-/*
-each model needs a route
 
-1. first 
-server.js get post DATA
-post.find()......
 
-give post to handlebars
-render{
-  post: post
-}
 
-2. homepage.handlebars
+app.use(postRoutes)
+
+// each model needs a route
+
+// 1. first 
+// server.js get post DATA
+// post.find()......
+
+// give post to handlebars
+// render{
+//   post: post
+// }
+
+// 2. homepage.handlebars
 //render it with the #each loop
+// 
 
 
 
 
 
-*/ */
+
 app.listen(PORT, ()=> {
   console.log(`app listening on http://localhost:${PORT}`)
   sequelize.sync({ force: false })
 })
+
+
 

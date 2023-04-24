@@ -1,9 +1,14 @@
+// WHEN I enter a comment and click on the submit button while signed in
+// THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
+
+
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model {}
+class Comment extends Model {}
 
-Project.init(
+Comment.init(
   {
     id: {
       type: DataTypes.INTEGER,
