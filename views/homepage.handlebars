@@ -1,27 +1,56 @@
-{{!-- <!-- Loop over each object in the projects array -->
-{{#each comment as |comment| }}
-<div class="row mb-4 comment">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_id}}}
-      <a href="/project/{{project.id}}">{{project.name}}</a>
-    </h2>
-    <p>
-      <span for="img" aria-label="money">💲</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount project.needed_funding}}</span>
-      needed!
-    </p>
-    <p>Created by {{project.user.name}} on {{format_date project.date_created}}</p>
-  </div>
-  <div class="col-md-7">
-    <p>
-      {{project.description}}
-    </p>
-  </div>
-</div>
-{{/each}} --}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TECH BLOG</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          
+          <li><a href="/">Homepage</a></li>
+          {{#if currentUser}}
+            <li><a href="/views/dashboard.handlebars">Dashboard</a></li>
+            <li><a href="/views/logout.handlebars">Logout</a></li>
+          {{else}}
+            <li><a href="/views/login.handlebars">Login</a></li>
+            <li><a href="/views/signup.handlebars">Sign Up</a></li>
+          {{/if}}
+
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>
+
+
+{{!-- GIVEN a CMS-style blog site
+WHEN I visit the site for the first time
+THEN I am presented with the homepage, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in --}}
+
+
+{{!-- WHEN I click on the homepage option
+THEN I am taken to the homepage
+WHEN I click on any other links in the navigation
+THEN I am prompted to either sign up or sign in --}}
 
 
 
+{{!-- WHEN I revisit the site at a later time and choose to sign in
+THEN I am prompted to enter my username and password
+WHEN I am signed in to the site --}}
+
+
+
+{{!-- THEN I see navigation links for the homepage, the dashboard, and the option to log out
+WHEN I click on the homepage option in the navigation
+THEN I am taken to the homepage and presented with existing blog posts that include the post title and the date created --}}
+
+{{!-- 
+WHEN I am idle on the site for more than a set time
+THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments --}}
+
+
+{{!-- WHEN I click on the logout option in the navigation
+THEN I am signed out of the site --}}
