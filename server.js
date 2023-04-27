@@ -7,7 +7,7 @@ const helpers = require('./utils/helpers');
 const postRoutes = require('./controllers/postroutes')
 
 // routes added - josie
- 
+const homeRoutes = require('./controllers/homeroutes'); 
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -55,7 +55,8 @@ app.get('/', async (req, res)=>{
 } )
 
 
-app.use(postRoutes)
+app.use(postRoutes);
+app.use('/', homeRoutes);
 
 
 
