@@ -1,0 +1,19 @@
+<header>
+    <h1>
+     TECH BLOG 
+    </h1>
+    <nav>
+        <ul>
+             <li><a href="/">Homepage</a></li>
+          {{#if currentUser}}
+            <li><a href="/views/dashboard.handlebars">Dashboard</a></li>
+            <li><a href="/views/logout.handlebars">Logout</a></li>
+          {{else}}
+            <li><a href="/views/login.handlebars">Login</a></li>
+            <li><a href="/views/signup.handlebars">Sign Up</a></li>
+          {{/if}}
+
+            
+        </ul>
+    </nav>
+</header>

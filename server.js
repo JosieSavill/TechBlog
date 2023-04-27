@@ -6,8 +6,12 @@ const helpers = require('./utils/helpers');
 
 const postRoutes = require('./controllers/postroutes')
 
+// routes added - josie
+ 
+
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -42,22 +46,16 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.get('/', async (req, res)=>{
 
 
-  //get data post = getDATa -art 1
+  //get data post = getDATa 
 
   console.log("i am here")
   res.render('homepage.handlebars', {
-    posts: [] //post assignt the data to varaible for handlbars -art 2
+    posts: [] //post assignt the data to varaible for handlbars 
   })
 } )
 
 
-
-
 app.use(postRoutes)
-
-
-
-
 
 
 
