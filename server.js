@@ -8,7 +8,7 @@ const postRoutes = require('./controllers/postroutes')
 
 // routes added - josie
 const homeRoutes = require('./controllers/homeroutes');
-// const userRoutes = require('./controllers/userRoutes'); 
+const userRoutes = require('./controllers/userRoutes'); 
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
@@ -44,21 +44,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')))
 
 
-app.get('/', async (req, res)=>{
-
-
-  //get data post = getDATa 
-
-  console.log("i am here")
-  res.render('homepage.handlebars', {
-    posts: [] //post assignt the data to varaible for handlbars 
-  })
-} )
 
 
 app.use(postRoutes);
 app.use('/', homeRoutes);
-// app.use('/', userRoutes);
+app.use('/', userRoutes);
+// routes complete
 
 
 

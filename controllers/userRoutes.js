@@ -4,7 +4,14 @@ const { User } = require('../models');
 
 
 
+// renders the login page whe use clicks the "login" link
+router.get('/login', (req, res) => {
+    res.render('login', { title: 'Login' });
+  });
+  
+
 router.post('/login', async (req, res) => {
+    console.log("did i get data?", req.body)
     try {
         const { username, password } = req.body;
         
@@ -24,15 +31,59 @@ router.post('/login', async (req, res) => {
         // set user ID in the session
         req.session.userId = user.id;
 
-        // send success msg
-        res.json({ message: 'Login successful!'});
+        console.log({ message: 'Login successful!'});
 
+
+        // send success msg
+        res.redirect("/")
+       
     }   catch (err) {
         console.error(err);
         res.status(500).json({ message: 'Server error' });
     }
 });
 
+// renders the login page whe use clicks the "login" link
+router.get('/signup', (req, res) => {
+    res.render('signup');
+  });
+  
+
+router.post('/signup', async (req, res) => {
+    console.log("did i get data?", req.body)
+    try {
+ 
+       
+        
+        // gind the user by username
+        const user = await User.create({
+            name: req.body.name,
+           username: req.body.username,
+           password: req.body.password
+
+        });
+
+
+        // if the user is not found, send an error msg
+        if (!user) {
+            return res.status(400).json({ message: 'Invalid username or password'});
+
+        }
+
+        // set user ID in the session
+        req.session.userId = user.id;
+
+        console.log({ message: 'Login successful!'});
+
+
+        // send success msg
+        res.redirect("/")
+       
+    }   catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Server error' });
+    }
+});
 
 
 module.exports = router;

@@ -9,6 +9,13 @@ router.get('/userposts', (req, res)=> {
 });
 
 
+router.post("/post",  (req, res)=> {
+    console.log("blog post form data received","req.body.???")
+
+});
+
+
+
 
 module.exports = router;
 
