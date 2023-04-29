@@ -1,8 +1,3 @@
-// WHEN I enter a comment and click on the submit button while signed in
-// THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
-
-
-
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
@@ -16,37 +11,46 @@ Comment.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
+
+    text: {
+       type: DataTypes.STRING,
+       allowNull: false,
+
+    },
+
+    post_id: {
+      type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: 'post',
+        key: 'id',
+      },
     },
-    description: {
-      type: DataTypes.STRING,
-    },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    needed_funding: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
+
+  
+
     user_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: 'user',
         key: 'id',
       },
     },
-  },
-  {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'project',
-  }
+
+   
+  },  
+
+    {
+      sequelize,
+      timestamps: true,
+      freezeTableName: true,
+      underscored: true,
+      modelName: 'comment',
+    }
+  
 );
 
-module.exports = Project;
+
+
+module.exports = Comment;

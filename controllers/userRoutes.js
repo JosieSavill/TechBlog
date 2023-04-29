@@ -86,6 +86,8 @@ router.post('/signup', async (req, res) => {
 });
 
 
+// need to add logout route here
+
 module.exports = router;
 
 

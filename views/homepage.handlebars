@@ -8,22 +8,76 @@
         </div>
       {{/each}}  
 
-      <form action="">
-
-        {{!-- enter blog post form here --}}
-
-
-        {{!-- enter comment post form here --}}
+      <form action="/comment" method+"POST">
+        <div>
+          
+        </div>
 
 
       </form>
     </main>
+        {{!-- <form action="/comment/{{post.id}}" method="POST">
+          <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+          </div><br>
+
+          <input type="hidden" name="user_id" value="{{currentUser.id}}">
+            <input type="hidden" name="post_id" value="{{post.id}}">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form><br>
+
+          <p>Comment by {{currentUser.username}} on {{format_date new Date()}}</p> --}}
+
+
+        {{!-- enter blog post form here --}}
+        {{!-- 
+WHEN I enter a comment and click on the submit button while signed in
+THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created --}}
+        
+        {{!-- <h1>Enter New Post</h1>
+        <form method="POST" action="/post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username"><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br>
+
+        <button type="submit">Sign Up</button>
+        </form> --}}
+
+
+
+
+
+
+
+
+
+
+
+{{!-- WHEN I choose to sign up
+THEN I am prompted to create a username and password
+WHEN I click on the sign-up button
+THEN my user credentials are saved and I am logged into the site --}}
+
+        {{!-- enter edit blog post form here --}}
+
+        {{!-- enter comment post form here --}}
+
+        {{!-- enter edit comment post form here  --}}
+
+
+      
     
 
 
 
      {{!-- WHEN I click on an existing blog post
-THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment --}} --}}
+THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment --}} 
 
 
 {{!-- 
