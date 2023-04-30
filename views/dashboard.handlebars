@@ -1,17 +1,50 @@
-{{!-- WHEN I click on the dashboard option in the navigation
-THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post --}}
+<main>
+    <h1>My Dashboard</h1>
 
+    {{#if posts}}
+        {{#each posts}}
+            <div class="blog-post">
+                <h2><a href="/post/{{this.id}}">{{this.title}}</a></h2>
+                <p>{{this.body}}</p>
+                <p>{{this.user_id}}</p>
+                <button class="btn btn-danger" onclick="deletePost({{this.id}})">Delete</button>
+                <button class="btn btn-primary" onclick="showUpdateForm({{this.id}}, '{{this.title}}', '{{this.body}}')">Update</button>
+            </div>
+        {{/each}}
+    {{else}}
+        <p>No posts  yet. Add one below.</p>
+    {{/if}}
 
+    <form id="new-post-form">
+        <div>
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" required>
+        </div><br>
+                
+        <div>
+            <label for="body">Body:</label>
+            <textarea id="body" name="body" rows="10" cols="50" required></textarea>
+        </div><br>
 
-{{!-- WHEN I click on the button to add a new blog post
-THEN I am prompted to enter both a title and contents for my blog post
-WHEN I click on the button to create a new blog post
-THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post --}}
+        <div>
+            <button class="btn btn-primary" onclick="updatePost()">Update Post</button>
+            <button class="btn btn-secondary" onclick="cancelUpdate()">Cancel</button>
+        </div><br>
+    </form>
 
+    <form id="update-post-form" style="display: none">
+        <div>
+            <label for="title">Title:</label>
+            <input type="text" id="update-title" name="title" required>
+        </div><br>
 
+        <div>
+            <button class="btn btn-primary" onclick="updatePost()">Update Post</button>
+            <button class="btn btn-secondary" onclick="cancelUpdate()">Cancel</button>
+        </div><br>
+    </form>
 
-{{!-- WHEN I click on one of my existing posts in the dashboard
-THEN I am able to delete or update my post and taken back to an updated dashboard --}}
+</main>
 
 
 

@@ -1,13 +1,19 @@
-<form method="post" action="/post/edit">
+<link rel="stylesheet" href="/css/style.css">
 
-<fieldset>
+
+
+<form method="post" action="/post/edit" class="my-form">
+
+<fieldset class="form-group">
 <label for="">Title</label>
-<input type="text" value="{{post.title}}" name="title">
+<input type="text" value="{{post.title}}" name="title" id="title" class="form-control">
 </fieldset>
-<fieldset>
+
+<fieldset class="form-group">
 <label for="">body</label>
-<input type="text" value="{{post.body}}" name="body">
+<textarea  id="body" name="body" class="form-control" required cols="50" rows="10">{{post.body}}</textarea>
 </fieldset>
+
 <input type="hidden" value="{{post.id}}" name="post_id" id="">
 
 <input class="btn btn-primary" type="submit" value="Edit Submit">

@@ -11,10 +11,11 @@ const { Post, User } = require('./models');
 
 
 
-// routes added - josie
+// routes added 
 const postRoutes = require('./controllers/postroutes');
 const homeRoutes = require('./controllers/homeroutes');
 const userRoutes = require('./controllers/userRoutes'); 
+const dashboardRoutes = require('./controllers/dashboardRoutes');
 
 
 // added sequelize
@@ -57,6 +58,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(postRoutes);
 app.use('/', homeRoutes);
 app.use('/', userRoutes);
+app.use('/', dashboardRoutes);
 
 // added a middleware to attach the Post and User mdels to the request object
 app.use(async (req, res, next) => {
