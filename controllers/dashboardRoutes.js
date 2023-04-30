@@ -9,12 +9,8 @@ const withAuth= require('../utils/auth');
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
 
-        const user = await User.findByPk(req.user.id, {
-            include: [{ model: Post }],
-        });
-
-        const posts = user.Posts;
-        res.render('dashboard', { posts });
+        const currentUser = await User.findById(req.session.userId);
+        res.render('homepage', {withAuth: withAuth, currentUser: currentUser });
 
     } catch (err) {
 
@@ -26,7 +22,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 
-// Create ew blog post
+// Create new blog post
 router.post('/dashboard', withAuth, async (req, res) => {
 
     try {
@@ -57,7 +53,7 @@ router.put('/dashboard/:id', withAuth, async (req, res) => {
     try {
 
         const { title, body } = req.body;
-        const post = await Post.findByPk(req.params.id);
+        const post = await Post.findById(req.params.id);
         if (!post) {
 
             return res.status(404).json({ error: 'Post not found' });
@@ -87,7 +83,7 @@ router.delete('/dashboard/:id', withAuth, async (req, res) => {
 
     try {
 
-        const post = await Post.findByPk(req.params.id);
+        const post = await Post.findById(req.params.id);
         if (!post) {
 
             return res.status(404).json({ error: 'Post not found' });

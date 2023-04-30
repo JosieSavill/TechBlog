@@ -1,16 +1,21 @@
 <header>
+  <title>Tech Blog</title>
+  <link rel="stylesheet" href="/public/css/style.css">
+  
     <h1>
      TECH BLOG 
     </h1>
     <nav>
         <ul>
-             <li><a href="/">Homepage</a></li>
-          {{#if currentUser}}
-            <li><a href="/views/dashboard.handlebars">My Dashboard</a></li>
-            <li><a href="/views/logout.handlebars">Logout</a></li>
-          {{else}}
+            <li><a href="/">Homepage</a></li>
             <li><a href="/login">Login</a></li>
             <li><a href="/signup">Sign Up</a></li>
+          {{#if currentUser}}
+            <li><a href="/dashboard">My Dashboard</a></li>
+            <li><a href="/logout">Logout</a></li>
+          {{!-- {{else}}
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Sign Up</a></li> --}}
           {{/if}}
 
             

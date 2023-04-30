@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/css/style.css">
 
     <main>
       <h1>Latest Blog Posts</h1>
@@ -9,7 +10,9 @@
         </div>
       {{/each}}  
 
-      <form action="/posts/create" method="POST">
+
+    {{#if user}}
+      <form action="/posts/create" method="POST" class="my-form">
         <div>
           <label for="title">Title:</label>
           <input type="text" id="title" name="title" required> 
@@ -27,19 +30,6 @@
 
 
       </form>
+    {{/if}}  
     </main>
     
-{{!-- WHEN I enter a comment and click on the submit button while signed in
-THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created --}} --}}
-        
-{{!-- WHEN I choose to sign up
-THEN I am prompted to create a username and password
-WHEN I click on the sign-up button
-THEN my user credentials are saved and I am logged into the site --}}
-
-     {{!-- WHEN I click on an existing blog post
-THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment --}} 
-
-{{!-- 
-WHEN I enter a comment and click on the submit button while signed in
-THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created --}}
