@@ -1,4 +1,4 @@
-<style>
+
 
 .my-form {
 
@@ -48,4 +48,15 @@
 
 }
 
-</style>
+
+body {
+
+    background-image: url('/public/assets/techblogblue.png');
+    background-repeat: repeat;
+    
+
+}
+
+
+
+
