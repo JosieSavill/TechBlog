@@ -1,0 +1,10 @@
+<main>
+    <h1>All Blog Posts</h1>
+    {{#each posts}}
+        <div class="blog-post">
+            <h2><a href="/posts/{{this.id}}">{{this.title}}</a></h2>
+            <p>{{this.body}}</p>
+            <p>{{this.createdAt}}</p>
+        </div>
+    {{/each}}
+</main>

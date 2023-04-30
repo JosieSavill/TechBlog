@@ -4,14 +4,20 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const helpers = require('./utils/helpers');
 
-const postRoutes = require('./controllers/postroutes')
+
+
+// import the Post and User models
+const { Post, User } = require('./models');
+
+
 
 // routes added - josie
+const postRoutes = require('./controllers/postroutes');
 const homeRoutes = require('./controllers/homeroutes');
 const userRoutes = require('./controllers/userRoutes'); 
 
 
-
+// added sequelize
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -46,18 +52,33 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')))
 
 
-
+// added the postRoutes to the app
 
 app.use(postRoutes);
 app.use('/', homeRoutes);
 app.use('/', userRoutes);
 
+// added a middleware to attach the Post and User mdels to the request object
+app.use(async (req, res, next) => {
+  req.models = {
+    Post,
+    User,
+  };
+
+  next();
+
+});
+
+
+
 
 
 app.listen(PORT, ()=> {
+
   console.log(`app listening on http://localhost:${PORT}`)
   sequelize.sync({ force: false })
-})
+
+});
 
 
 

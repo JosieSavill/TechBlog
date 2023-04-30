@@ -1,0 +1,15 @@
+<form method="post" action="/post/edit">
+
+<fieldset>
+<label for="">Title</label>
+<input type="text" value="{{post.title}}" name="title">
+</fieldset>
+<fieldset>
+<label for="">body</label>
+<input type="text" value="{{post.body}}" name="body">
+</fieldset>
+<input type="hidden" value="{{post.id}}" name="post_id" id="">
+
+<input class="btn btn-primary" type="submit" value="Edit Submit">
+
+</form>

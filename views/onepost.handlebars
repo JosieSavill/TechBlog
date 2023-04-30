@@ -1,0 +1,22 @@
+<div class="card p-1">
+    <h1>{{post.title}}</h1>
+
+        <div class="blog-post">
+            <p>{{post.body}}</p>
+            <p>{{post.createdAt}}</p>
+            <p>{{post.user_id}}</p>
+        </div>
+</div>
+<a class="btn btn-primary" href="/post/edit/{{post.id}}">Edit</a>
+<a class="btn btn-danger" href="/post/delete/{{post.id}}">Delete</a>
+
+
+
+<form method="post" action="/comments">
+<label for="">Comment</label>
+<input type="text" name="text">
+<input type="hidden" name="user_id" value="1">
+<input type="hidden" name="post_id" value="{{post.id}}">
+<input type="submit" value="Add Comment" id="">
+
+</form>
