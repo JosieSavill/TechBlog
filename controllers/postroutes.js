@@ -1,7 +1,7 @@
 // user posts to blog
 
 const router = require('express').Router();
-const { Post } = require('../models');
+const { Post, User, Comment } = require('../models');
 
 //GET route to display all blog posts
 router.get('/posts', async (req, res)=> {
@@ -26,14 +26,34 @@ router.get('/post/:id', async (req, res)=> {
 
     try {
 
-        const post = await Post.findOne({
+        const result = await Post.findOne({
             where: {id: req.params.id},
-            raw: true
+            include: {model: User}
+    
         });
+        const plainBuild = result.get({plain: true})
 
-        console.log("one post",post)
+        console.log("catct", plainBuild)
+
+
+
+        if(req.session.user_id === undefined){
+            res.render('onepost', {
+              posts: plainBuild,
+              user_id: false
+             
+            })
+    
+          }  else {
+            res.render('onepost', {
+              posts: plainBuild,
+              user_id: req.session.user_id
+             
+            })
+          }
+
+
       
-        res.render('onepost', { post });
  
 
     } catch (err) {
@@ -58,7 +78,10 @@ router.get('/post/edit/:id', async (req, res)=> {
 
         console.log("one post",post)
       
-        res.render('editpost', { post });
+        res.render('editpost', { post: post,
+            user_id: req.session.user_id
+        
+        });
  
 
     } catch (err) {
@@ -129,11 +152,11 @@ router.post('/post/edit/', async (req, res) =>{
 
 // POST route to create a new blog post
 
-router.post('/posts/create', async (req, res)=> {
+router.post('/posts', async (req, res)=> {
 
     try{
 
-        const newPost = await Post.create({
+        const result = await Post.create({
 
             title: req.body.title,
             body: req.body.body,
@@ -141,7 +164,7 @@ router.post('/posts/create', async (req, res)=> {
 
         });
 
-        res.redirect('/');
+        res.redirect('/dashboard');
 
     } catch (err) {
 
@@ -152,6 +175,34 @@ router.post('/posts/create', async (req, res)=> {
     
 
 });
+
+
+router.post('/comments', async (req, res)=> {
+    console.log("add comment")
+
+    try{
+
+        const result = await Comment.create({
+
+            text: req.body.text,
+            post_id: parseInt(req.body.post_id),
+            user_id: parseInt(req.body.user_id)
+
+        });
+
+        res.redirect(`/post/${req.body.post_id}`);
+
+    } catch (err) {
+
+        console.log(err);
+        res.status(500).json(err);
+
+    }
+    
+
+});
+
+
 
 
 

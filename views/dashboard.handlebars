@@ -1,24 +1,23 @@
-<link rel="stylesheet" href="/css/style.css">
 
 
-<main style="background-image: url('https://i.pinimg.com/originals/92/f9/90/92f990a1dab0e416b0000acb37d8d230.jpg')">
+
+<main>
     <h2>My Dashboard</h2>
-
+ <h2 style="color:whitesmoke">Latest Posts</h2>
     {{#if posts}}
-        {{#each posts}}
-            <div class="blog-post">
-                <h2><a href="/post/{{this.id}}">{{this.title}}</a></h2>
-                <p>{{this.body}}</p>
-                <p>{{this.user_id}}</p>
-                <button class="btn btn-danger" onclick="deletePost({{this.id}})">Delete</button>
-                <button class="btn btn-primary" onclick="showUpdateForm({{this.id}}, '{{this.title}}', '{{this.body}}')">Update</button>
-            </div>
-        {{/each}}
+        
+      {{#each posts}}
+        <div style="color:whitesmoke">
+          <h3><a href="/post/{{this.id}}">{{this.title}}</a></h3>
+          <p>{{this.body}}</p>
+         
+        </div>
+      {{/each}}  
     {{else}}
         <p>No posts  yet. Add one below.</p>
     {{/if}}
 
-    <form id="new-post-form" class="my-form">
+    <form id="new-post-form" class="my-form" method="post" action="/posts">
         <div>
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" required>
@@ -28,11 +27,11 @@
             <label for="body">Body:</label>
             <textarea id="body" name="body" rows="10" cols="50" required></textarea>
         </div><br>
-
+        <input type="hidden" name="user_id" value="{{user.id}}">
         <div>
-            <button class="btn btn-primary" onclick="updatePost()">Update Post</button>
-            <button class="btn btn-secondary" onclick="cancelUpdate()">Cancel</button>
-        </div><br>
+            <button class="btn btn-primary">Add Post</button>
+   
+        </div>
     </form>
 
     <form id="update-post-form" style="display: none">

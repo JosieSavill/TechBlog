@@ -6,38 +6,30 @@ router.get('/', async (req, res)=>{
 
 
   //get data post = getDATa 
-  console.log("did i get user?",req.session.user)
+  console.log("did i get user?", req.session.user_id)
   try{
       const result = await Post.findAll({
-      
-       
-        raw: true
-  
+        include: {model: User}
       });
 
-      let newPostList = [];
-      result.map(p=>{
-        //user_id
-        User.findOne({
-          where: {id: p.user_id},
-          raw: true
-        }).then((user)=>{
+      const plainBuild = result.map(x => x.get({plain: true}))
 
+      if(req.session.user_id === undefined){
+        res.render('homepage.handlebars', {
+          posts: plainBuild,
+          user: false
          
-          p.user = user;
-          newPostList.push(p);
         })
-       
 
-      })
-
-   
-
-      console.log("i got post data", result)
-      res.render('homepage.handlebars', {
-        posts: result,
-        user: req.session.user
-      })
+      }  else {
+        res.render('homepage.handlebars', {
+          posts: plainBuild,
+          user: req.session.user_id
+         
+        })
+      }
+      
+     
 
 
   } catch(err){

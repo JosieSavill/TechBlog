@@ -29,7 +29,7 @@ router.post('/login', async (req, res) => {
         }
 
         // set user ID in the session
-        req.session.userId = user.id;
+        req.session.user_id = user.id;
 
         console.log({ message: 'Login successful!'});
 
@@ -64,10 +64,11 @@ router.post('/signup', async (req, res) => {
  
 
         // set user ID in the session
-        req.session.userId = user.id;
+        req.session.user_id = user.id;
 
         // send success msg
-        res.status(200).json({ message: 'Signup successful!' });
+        //res.status(200).json({ message: 'Signup successful!' });
+        res.redirect('/');
        
     }   catch (err) {
         console.error(err);

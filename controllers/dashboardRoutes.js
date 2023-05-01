@@ -6,17 +6,30 @@ const withAuth= require('../utils/auth');
 
 
 // Render dashboard page with blog posts
-router.get('/views/dashboard', withAuth, async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
     try {
+        const currentUser = await User.findOne({
+            where: {id: req.session.user_id},
+            raw: true
+        });
 
-        const currentUser = await User.findById(req.session.userId);
-        res.render('dashboard', {withAuth: withAuth, currentUser: currentUser });
+        const result = await Post.findAll({
+            include: {model: User}
+          });
+    
+          const plainBuild = result.map(x => x.get({plain: true}))
+    
+         
+         
+          console.log("check",currentUser)
+
+        res.render('dashboard', { user: currentUser,
+            posts: plainBuild });
 
     } catch (err) {
 
         console.error(err);
         res.status(500).json({ error: 'Server Error' });
-
     }
 
 });
