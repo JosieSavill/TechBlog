@@ -6,7 +6,7 @@ const withAuth= require('../utils/auth');
 
 
 // Render dashboard page with blog posts
-router.get('/dashboard', withAuth, async (req, res) => {
+router.get('/views/dashboard', withAuth, async (req, res) => {
     try {
 
         const currentUser = await User.findById(req.session.userId);
@@ -23,7 +23,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
 
 // Create new blog post
-router.post('/dashboard', withAuth, async (req, res) => {
+router.post('/views/dashboard', withAuth, async (req, res) => {
 
     try {
 
