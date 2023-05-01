@@ -3,11 +3,11 @@
 
 <main>
     <h2>My Dashboard</h2>
- <h2 style="color:whitesmoke">Latest Posts</h2>
+ <h3 style="color:whitesmoke">Latest Posts:</h3>
     {{#if posts}}
         
       {{#each posts}}
-        <div style="color:whitesmoke">
+        <div class="card" style="color:whitesmoke">
           <h3><a href="/post/{{this.id}}">{{this.title}}</a></h3>
           <p>{{this.body}}</p>
          

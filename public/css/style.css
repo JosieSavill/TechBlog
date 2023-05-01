@@ -5,6 +5,11 @@
     font-size: 60px;
 }
 
+.li {
+
+    color: cornflowerblue;
+}
+
 
 
 h1 {
@@ -19,17 +24,23 @@ h1 {
 h2 {
 
     color: whitesmoke;
+    font-size: 36px;
    
+}
+
+h3 a{
+    color:  whitesmoke;
 }
 
 .form-group {
 
-    width: 75%;
+    width: 100%;
     padding: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
     font-size: 24px;
     margin-bottom: 10px;
+    color: black;
 
 }
 
@@ -53,13 +64,14 @@ h2 {
     margin-top: 5px;
     border-radius: 5px;
     color: whitesmoke;
+    font-size: 24px;
 
 }
 
 .my-form input[type="text"],
 .my-form textarea {
 
-    width: 25%;
+    width: 100%;
     padding: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -101,7 +113,8 @@ h2 {
 
 .body {
 
-    background-image: url('https://thumbs.dreamstime.com/b/fire-ice-lightning-background-177074642.jpg');
+    background-image: url('https://th.bing.com/th/id/R.1dee41581fcbeb78df12af3220ded4a1?rik=BPLRJAOdwELd6Q&riu=http%3a%2f%2fgetwallpapers.com%2fwallpaper%2ffull%2f4%2f5%2fc%2f29361.jpg&ehk=y%2bRAkHJkNwRfPGTal2kgPZ%2bSA29Fn%2bbTsWm7PaXIlEk%3d&risl=&pid=ImgRaw&r=0');
+
     
 }
 
@@ -126,9 +139,27 @@ footer {
 
 
 
+.ul {
+
+    color: cornflowerblue;
+}
+
+
+
+ul {
+
+    color: cornflowerblue;
+}
+
+.card{
+    padding: 10px;
+}
 .card h1{
     color: black;
 }
 .card p {
     color: black;
+}
+.card h3 a{
+    color: cornflowerblue;
 }

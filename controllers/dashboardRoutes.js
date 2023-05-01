@@ -14,7 +14,8 @@ router.get('/dashboard', withAuth, async (req, res) => {
         });
 
         const result = await Post.findAll({
-            include: {model: User}
+            include: {model: User},
+            where: {user_id: req.session.user_id }
           });
     
           const plainBuild = result.map(x => x.get({plain: true}))

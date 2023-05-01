@@ -26,16 +26,18 @@ router.post('/login', async (req, res) => {
         if (!user) {
             return res.status(400).json({ message: 'Invalid username or password'});
 
+        } else{
+            req.session.user_id = user.id;
+            console.log({ message: 'Login successful!'});
+            // send success msg
+            res.redirect("/")
+
         }
 
         // set user ID in the session
-        req.session.user_id = user.id;
+      
 
-        console.log({ message: 'Login successful!'});
-
-
-        // send success msg
-        res.redirect("/")
+      
        
     }   catch (err) {
         console.error(err);
@@ -77,7 +79,7 @@ router.post('/signup', async (req, res) => {
 
 });   
 
-    router.post('/logout', (req, res) => {
+router.get('/logout', (req, res) => {
         // destroy the user session and redirect to the homepage
         req.session.destroy(() => {
           res.redirect('/');

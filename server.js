@@ -55,7 +55,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // added the postRoutes to the app
 
-app.use(postRoutes);
+app.use("/",postRoutes);
 app.use('/', homeRoutes);
 app.use('/', userRoutes);
 app.use('/', dashboardRoutes);

@@ -28,25 +28,26 @@ router.get('/post/:id', async (req, res)=> {
 
         const result = await Post.findOne({
             where: {id: req.params.id},
-            include: {model: User}
+            include: [{model: User}, {model: Comment, include: {model: User}}]
     
         });
         const plainBuild = result.get({plain: true})
 
-        console.log("catct", plainBuild)
+        console.log("catch", plainBuild)
 
 
 
         if(req.session.user_id === undefined){
             res.render('onepost', {
-              posts: plainBuild,
-              user_id: false
+              post: plainBuild,
+              user_id: false,
+       
              
             })
     
           }  else {
             res.render('onepost', {
-              posts: plainBuild,
+              post: plainBuild,
               user_id: req.session.user_id
              
             })

@@ -13,16 +13,24 @@
 <a class="btn btn-danger" href="/post/delete/{{post.id}}">Delete</a>
 
 
+<h2>Comments</h2>
+
+     {{#each post.comments}}
+        <div style="color:whitesmoke">
+          <p>{{this.text}}</p>
+          <p>{{this.user_id}}</p>
+        </div>
+      {{/each}} 
 
  {{#if user_id}}
 
 
 <form method="post" action="/comments" class="my-form">
-<label for="">Comment</label>
-<input type="text" name="text">
+<label for="text" class="label">Add Comment:</label>
+<input type="text" name="text" id="text">
 <input type="hidden" name="user_id" value="{{user_id}}">
 <input type="hidden" name="post_id" value="{{post.id}}">
-<input type="submit" value="Add Comment" id="">
+<input type="submit" value="Submit" id="">
 
 </form>
 
