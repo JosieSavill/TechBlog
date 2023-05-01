@@ -1,3 +1,12 @@
+.header {
+
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: whitesmoke;
+    font-size: 60px;
+}
+
+
+
 h1 {
 
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -34,6 +43,7 @@ h2 {
     margin-bottom: 5px;
     margin-top: 5px;
     border-radius: 5px;
+    color: whitesmoke;
 
 }
 
@@ -41,22 +51,22 @@ h2 {
 .my-form textarea {
 
     width: 25%;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    font-size: 16px;
+    font-size: 24px;
     margin-bottom: 10px;
 
 }
 
 
 .my-form input[type="submit"] {
-    
+
     background-color: #007bff;
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 24px;
     cursor: pointer;
 
 }
@@ -74,22 +84,34 @@ h2 {
 
 }
 
+#latest-blog-posts {
 
+    color: whitesmoke;
 
+}
 
 .body {
 
-    background-image: url('https://marketingweek.imgix.net/content/uploads/2020/04/30131838/Digital-shift-scaled.jpg');
+    background-image: url('https://thumbs.dreamstime.com/b/fire-ice-lightning-background-177074642.jpg');
     
 }
 
+.logoutpage {
+
+    background-image: url('https://th.bing.com/th/id/R.a4910e190cd7274d4309dc47084556cd?rik=JOmY21E13hADCQ&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fsLQDF8r.jpg&ehk=lGa6eCh3zJTWis1pi6iwMkIjE0luEFBhUnYCT6hRJOA%3d&risl=&pid=ImgRaw&r=0');
 
 
+}
+
+p {
+
+    color: whitesmoke;
+}
 
 footer {
 
     color: whitesmoke;
-    margin-top: 20px;
+    margin-top: 40px;
 
 }
 

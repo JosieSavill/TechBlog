@@ -50,40 +50,40 @@ router.get('/signup', (req, res) => {
   
 
 router.post('/signup', async (req, res) => {
-    console.log("did i get data?", req.body)
+    console.log("did i get data?", req.body);
     try {
  
-       
-        
-        // gind the user by username
+        // find the user by username
         const user = await User.create({
+
             name: req.body.name,
-           username: req.body.username,
-           password: req.body.password
+            username: req.body.username,
+            password: req.body.password
 
         });
-
-
-        // if the user is not found, send an error msg
-        if (!user) {
-            return res.status(400).json({ message: 'Invalid username or password'});
-
-        }
+ 
 
         // set user ID in the session
         req.session.userId = user.id;
 
-        console.log({ message: 'Login successful!'});
-
-
         // send success msg
-        res.redirect("/")
+        res.status(200).json({ message: 'Signup successful!' });
        
     }   catch (err) {
         console.error(err);
         res.status(500).json({ message: 'Server error' });
     }
+
+});   
+
+    router.post('/logout', (req, res) => {
+        // destroy the user session and redirect to the homepage
+        req.session.destroy(() => {
+          res.redirect('/');
+        });
+
 });
+
 
 
 // need to add logout route here

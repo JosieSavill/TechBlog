@@ -10,7 +10,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     try {
 
         const currentUser = await User.findById(req.session.userId);
-        res.render('homepage', {withAuth: withAuth, currentUser: currentUser });
+        res.render('dashboard', {withAuth: withAuth, currentUser: currentUser });
 
     } catch (err) {
 

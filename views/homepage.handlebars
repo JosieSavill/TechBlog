@@ -3,13 +3,13 @@
   <link rel="stylesheet" href="/public/assets/style.css">
 </head>
 
-<body>
+<body style="background-image: url('https://th.bing.com/th/id/R.a4910e190cd7274d4309dc47084556cd?rik=JOmY21E13hADCQ&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fsLQDF8r.jpg&ehk=lGa6eCh3zJTWis1pi6iwMkIjE0luEFBhUnYCT6hRJOA%3d&risl=&pid=ImgRaw&r=0')">
 
     <main>
-      <h1>Latest Blog Posts</h1>
+      <h2 style="color:whitesmoke">Latest Posts</h2>
       {{#each posts}}
-        <div class="blog-post">
-          <h2><a href="/post/{{this.id}}">{{this.title}}</a></h2>
+        <div style="color:whitesmoke">
+          <h3><a href="/post/{{this.id}}">{{this.title}}</a></h3>
           <p>{{this.body}}</p>
           <p>{{this.user_id}}</p>
         </div>
