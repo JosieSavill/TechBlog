@@ -1,3 +1,18 @@
+h1 {
+
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 60px;
+    color: whitesmoke;
+
+}
+
+
+h2 {
+
+    color: whitesmoke;
+   
+}
+
 
 
 .my-form {
@@ -17,12 +32,15 @@
 
     display: block;
     margin-bottom: 5px;
+    margin-top: 5px;
+    border-radius: 5px;
 
 }
 
 .my-form input[type="text"],
 .my-form textarea {
-    width: 100%;
+
+    width: 25%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -33,6 +51,7 @@
 
 
 .my-form input[type="submit"] {
+    
     background-color: #007bff;
     color: #fff;
     padding: 10px 20px;
@@ -49,14 +68,30 @@
 }
 
 
-body {
+.btn {
 
-    background-image: url('/public/assets/techblogwhite.jpg');
-    background-repeat: repeat;
-    
+    margin-top: 20px;
 
 }
 
+
+
+
+.body {
+
+    background-image: url('https://marketingweek.imgix.net/content/uploads/2020/04/30131838/Digital-shift-scaled.jpg');
+    
+}
+
+
+
+
+footer {
+
+    color: whitesmoke;
+    margin-top: 20px;
+
+}
 
 
 
