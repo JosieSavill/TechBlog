@@ -2,8 +2,8 @@
 
 
 <main>
-    <h2>My Dashboard</h2>
- <h3 style="color:whitesmoke">Latest Posts:</h3>
+    <h2 style="margin-bottom: 10px;">My Dashboard - Latest Posts</h2>
+ <h3 style="color:whitesmoke">Click on link to add comment:</h3>
     {{#if posts}}
         
       {{#each posts}}
@@ -25,7 +25,7 @@
                 
         <div>
             <label for="body">Body:</label>
-            <textarea id="body" name="body" rows="10" cols="50" required></textarea>
+            <textarea id="body" name="body" rows="3" cols="10" required></textarea>
         </div><br>
         <input type="hidden" name="user_id" value="{{user.id}}">
         <div>
