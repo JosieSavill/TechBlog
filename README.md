@@ -1,12 +1,95 @@
-# TechBlog
+# **TECH BLOG**
+  
 
-# 14 Model-View-Controller (MVC): Tech Blog
 
-## Your Task
+---
 
-Writing about tech can be just as important as making it. Developers spend plenty of time creating new applications and debugging existing codebases, but most developers also spend at least some of their time reading and writing about technical concepts, recent advancements, and new technologies. A simple Google search for any concept covered in this course returns thousands of think pieces and tutorials from developers of all skill levels!
+<br>
+<br>
 
-Your task this week is to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. You’ll build this site completely from scratch and deploy it to Heroku. Your app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+
+
+![Desktop Img](/public/assets/techblogdesktop.png) 
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+## *Description*  
+<br>
+
+AS A manager at an internet retail company  
+I WANT a back end for my e-commerce website that uses the latest technologies  
+SO THAT my company can compete with other e-commerce companies.
+
+
+<br> 
+<br>
+
+## *Instructions*  
+<br>
+
+GIVEN a functional Express.js API  
+WHEN I add my database name, MySQL username, and MySQL password to an environment variable file  
+THEN I am able to connect to a database using Sequelize  
+WHEN I enter schema and seed commands  
+THEN a development database is created and is seeded with test data  
+WHEN I enter the command to invoke the application  
+THEN my server is started and the Sequelize models are synced to the MySQL database  
+WHEN I open API GET routes in Insomnia for categories, products, or tags  
+THEN the data for each of these routes is displayed in a formatted JSON  
+WHEN I test API POST, PUT, and DELETE routes in Insomnia  
+THEN I am able to successfully create, update, and delete data in my database  
+<br>
+<br>
+
+
+![Insomnia Img](/Assets/ECommerceInsomnia.png) 
+
+<br>
+<br>
+
+## *E-Commerce Back End Repository*  
+
+[Link Here](https://github.com/JosieSavill/ECommerceBackEnd)
+<br>
+<br>
+
+🎥 *DEMO Video*
+
+[Link Here](https://drive.google.com/file/d/1QXhRB9qjrDgbvr6AkSXVVwSFp_Xn7qHn/view)
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## User Story
 
